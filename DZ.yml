@@ -13,3 +13,5 @@ services:
             dockerfile: dockerfile_tomcat
         ports:
            - "8080:8080"
+        volumes:
+           - /tmp/war-web-project/target/wwp-1.0.0.war:/usr/local/tomcat/webapps/
