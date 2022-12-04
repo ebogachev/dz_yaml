@@ -5,14 +5,14 @@ services:
         container_name: maven-container
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: dockerfile_maven
         volumes:
            - /tmp/war-web-project/target/wwp-1.0.0.war:/usr/local/tomcat/webapps/
     prod:
         container_name: tomcat-container
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: dockerfile_tomcat
         ports:
            - "80:8080"
         volumes:
