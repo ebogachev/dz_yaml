@@ -1,0 +1,14 @@
+---
+- Ivan:
+  name: Ivan
+  job: Developer
+  skills:
+    - pyton
+    - perl
+- Vasya
+  name: Vasya
+  job: Developer
+  skills:
+    - pascal
+    - sql
+---
