@@ -1,18 +1,18 @@
 ---
 version: '3'
 services:
-    maven:
-        image: maven:3.5.2-jdk-8
+    sbor:
         container_name: maven-container
         build:
             context: .
+            dockerfile: Dockerfile
         volumes:
            - /tmp/war-web-project/target/wwp-1.0.0.war:/usr/local/tomcat/webapps/
-    tomcat:
-        image: maven:3.5.2-jdk-8
+    prod:
         container_name: tomcat-container
         build:
             context: .
+            dockerfile: Dockerfile
         ports:
            - "80:8080"
         volumes:

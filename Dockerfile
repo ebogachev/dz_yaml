@@ -1,0 +1,11 @@
+FROM maven:3.5.2-jdk-8
+RUN git clone https://github.com/koddas/war-web-project.git /tmp/war-web-project
+RUN mkdir /usr/local/tomcat/
+RUN mkdir /usr/local/tomcat/webapps/
+WORKDIR /tmp/war-web-project
+RUN mvn package
+RUN cp /tmp/war-web-project/target/wwp-1.0.0.war /usr/local/tomcat/webapps/
+FROM tomcat:9.0.8-jre8-alpine
+WORKDIR /usr/local/tomcat/bin
+CMD ["catalina.sh", "run"]
+EXPOSE 8080
