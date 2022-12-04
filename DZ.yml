@@ -1,14 +1,17 @@
----
-- Ivan:
-  name: Ivan
-  job: Developer
-  skills:
-    - pyton
-    - perl
-- Vasya
-  name: Vasya
-  job: Developer
-  skills:
-    - pascal
-    - sql
----
+version: '3'
+services:
+    maven-build:
+        build: .
+        volumes:
+            - 'myshare:/shared'
+
+    tomcat-build:
+        image: 'tomcat:8.5.43-jdk8'
+        ports:
+            - '8080:8080'
+        volumes:
+            - 'myshare:/shared'
+
+volumes:
+  myshare:
+    driver: local '
