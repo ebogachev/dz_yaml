@@ -1,14 +1,15 @@
----
 version: '3'
 services:
-    maven-build:
-        build: .
-        volumes:
-            - 'myshare:/shared'
+    maven:
+        container_name: maven-container
+        build:
+            context: .
+            dockerfile: dockerfile_maven
 
-    tomcat-build:
-        image: 'tomcat:8.5.43-jdk8'
+    tomcat:
+        container_name: tomcat-container
+        build:
+            context: .
+            dockerfile: dockerfile_tomcat
         ports:
-            - '8080:8080'
-        volumes:
-            - 'myshare:/shared'
+           - "8080:8080"
